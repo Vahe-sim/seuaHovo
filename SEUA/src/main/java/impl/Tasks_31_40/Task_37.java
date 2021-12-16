@@ -1,29 +1,29 @@
-package main.java.impl.Tasks_21_30;
+package main.java.impl.Tasks_31_40;
 
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Task_27 {
+public class Task_37 {
 	
 	public static void main(String[] args) {
 		
-		int[] nums = getArrayOfNumbers();
+		double[] nums = getArrayOfNumbers();
 		
 		sortArray(nums);
 		
 		checkArithmeticProgression(nums);
-				
+		
 	}
 	
-	private static int[] getArrayOfNumbers() {
+	private static double[] getArrayOfNumbers() {
 		//Creates an array of user generated input
 		
 		System.out.println("Please enter three numbers.");
 		Scanner scanner = new Scanner(System.in);
 		
-		int a = 0, b = 0, c = 0;
+		double a = 0, b = 0, c = 0, d = 0;
 		
-		int[] array = {a, b, c};
+		double[] array = {a, b, c, d};
 		
 		for(int i = 0; i < array.length; i++) {
 			System.out.print(String.format("Number %d) ", i+1));
@@ -36,27 +36,30 @@ public class Task_27 {
 	}
 	
 	
-	private static void sortArray(int[] array) {
+	private static void sortArray(double[] array) {
 		//returns sorted array
 		
 		Arrays.sort(array);
 	}
 	
-	
-	private static void checkArithmeticProgression(int[] array) {
+	private static void checkArithmeticProgression(double[] array) {
 		//Checks whether the sequence of numbers is an arithmetic progression
 		
 		//finds the difference of the first two terms of the array
-		int difference = array[1] - array[0];
+		double difference = array[1] - array[0];
 				
-		//Variable assumes initially that the given numbers do not form arithmetic progression
-		boolean isProgress = false;
-				
-				
-		if (array[2] - array[1] == difference) isProgress = true;
-			
+		//Variable assumes initially that the given numbers form arithmetic progression
+		boolean isProgress = true;
+		
+		for(int i = 1; i < array.length-1; i++) {
+			if(array[i+1] - array[i] != difference) {
+				isProgress = false;
+				break;
+			}
+		}
+		
 		System.out.println(isProgress);
+		
 	}
-	
 
 }

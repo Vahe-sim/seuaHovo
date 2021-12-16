@@ -6,32 +6,55 @@ public class Task_23 {
 
 	public static void main(String[] args) {
 		
-        Scanner scanner = new Scanner(System.in); // create scanner object to read input from console
+		System.out.println("Please enter three numbers.");
 		
-		System.out.println("Please enter the first number ");
-		int a = scanner.nextInt();
+		int[] nums = getArrayOfNumbers();
 		
-		System.out.println("Please enter the second number ");
-		int b = scanner.nextInt();
 		
-		System.out.println("Please enter the third number ");
-		int c = scanner.nextInt();
+		//assumes that the given array of integers does not contain value '1'
+		boolean isEqual = false;
+		
+		atLeastOne1(nums, isEqual);
+		
+	}
+	
+	private static int[] getArrayOfNumbers() {
+		//Creates an array of user generated input
+		
+		System.out.println("Please enter three numbers.");
+		Scanner scanner = new Scanner(System.in);
+		
+		int a = 0, b = 0, c = 0;
+		
+		int[] array = {a, b, c};
+		
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(String.format("Number %d) ", i+1));
+			array[i] = scanner.nextInt();
+		}
 		
 		scanner.close();
 		
-		boolean isEqual = false;
-		
-		int x[] = {a, b, c};
-		
+		return array;
+	}
+	
+	
+	private static void atLeastOne1(int[] array, boolean condition) {
+		/*checks whether the given array contains at least one value of '1'
+		 outputs true if the condition is true, and false otherwise
+		 */
 		for(int i = 0; i < 3; i++) {
-			if (x[i] == 1) {
-				isEqual = true;
-				System.out.println(isEqual);
+			if (array[i] == 1) {
+				condition = true;
+				System.out.println(condition);
 				break;
 			  }
 		   }
-		if (!isEqual) {
-			System.out.println(isEqual);
-		}	
+		
+		if (!condition) {
+			System.out.println(condition);
+		}
 	}
+	
+	
 }

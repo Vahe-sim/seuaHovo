@@ -5,20 +5,32 @@ import java.util.Scanner;
 public class Task_21 {
 	
 	public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in); // create scanner object to read input from console
+		Scanner scanner = new Scanner(System.in);
+		int a = inputInteger();
+		int b = inputInteger();
+		int c = inputInteger();
 		
-		System.out.println("Please enter the first number ");
-		int a = scanner.nextInt();
+		scanner.close();
 		
-		System.out.println("Please enter the second number ");
-		int b = scanner.nextInt();
+		getTheLargestInteger(a, b, c);
 		
-		System.out.println("Please enter the third number ");
-		int c = scanner.nextInt();
+	}
+	
+	
+	private static int inputInteger() {
+		//reads from console an integer and assigns the value to the variable.
+		Scanner scanner = new Scanner(System.in);
 		
-		scanner.close();	// close the scanner - as no further console inputs required
+		System.out.print("Please enter a number.");
+		
+		int num = scanner.nextInt();	
 		
 		
+		return num;
+	}
+	
+	private static void getTheLargestInteger(int a, int b, int c) {
+		// finds the largest integer among three integers.
 		if (a > b) {
 			if (a > c)
 				System.out.println(a);		
@@ -29,4 +41,5 @@ public class Task_21 {
 		}
 	}
 
+	
 }

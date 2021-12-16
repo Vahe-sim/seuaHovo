@@ -7,22 +7,41 @@ public class Task_32 {
 	
 	public static void main(String[] args) {
 	
-	double a = 0, b = 0, c = 0, d = 0;
+		double[] array = getArrayOfNumbers();
+		
+		sortArray(array);
 	
-	double[] array = {a, b, c, d};
-	
-	Scanner scanner = new Scanner(System.in);
-	System.out.println("Please enter four numbers.");
-	
-	for(int i = 0; i < array.length; i++) {
-		System.out.print(String.format("Enter number %d) ", i+1));
-		array[i] = scanner.nextDouble();
-	}
-	
-	scanner.close();
-	Arrays.sort(array);
-	
-	System.out.print("Minimum number: " + array[0]);
+	    System.out.print("Minimum number: " + array[0]);
 
 	}
+	
+	
+	private static double[] getArrayOfNumbers() {
+		//Creates an array of user generated input
+		
+		System.out.println("Please enter three numbers.");
+		Scanner scanner = new Scanner(System.in);
+		
+		double a = 0, b = 0, c = 0, d = 0;
+		
+		double[] array = {a, b, c, d};
+		
+		for(int i = 0; i < array.length; i++) {
+			System.out.print(String.format("Number %d) ", i+1));
+			array[i] = scanner.nextDouble();
+		}
+		
+		scanner.close();
+		
+		return array;
+	}
+ 
+ 
+	private static void sortArray(double[] array) {
+		//returns sorted array
+		
+		Arrays.sort(array);
+	}
+ 
+ 
 }

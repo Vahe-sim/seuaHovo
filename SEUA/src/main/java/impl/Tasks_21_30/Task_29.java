@@ -7,25 +7,42 @@ public class Task_29 {
 	
 	public static void main(String[] args) {
 		
-		int a = 0, b = 0, c = 0;
-		int[] array = {a, b, c};
+		int[] nums = getArrayOfNumbers();
 		
-		Scanner scanner = new Scanner(System.in);
+		printSortedArray(nums);
+		
+	}
+	
+	
+	private static int[] getArrayOfNumbers() {
+		//Creates an array of user generated input
+		
 		System.out.println("Please enter three numbers.");
+		Scanner scanner = new Scanner(System.in);
+		
+		int a = 0, b = 0, c = 0;
+		
+		int[] array = {a, b, c};
 		
 		for(int i = 0; i < array.length; i++) {
 			System.out.print(String.format("Number %d) ", i+1));
 			array[i] = scanner.nextInt();
 		}
+		
 		scanner.close();
 		
+		return array;
+	}
+	
+	
+	private static void printSortedArray(int[] array) {
+		//Prints the array in ascending order
+		
 		Arrays.sort(array);
-		//System.out.println(Arrays.toString(array));
 		
 		for(int i = 0; i < array.length; i++) {
 			System.out.print(array[i] + " ");
 		}
-		
 	}
 
 }

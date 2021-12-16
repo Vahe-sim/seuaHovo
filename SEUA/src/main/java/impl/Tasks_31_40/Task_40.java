@@ -1,33 +1,31 @@
-package main.java.impl.Tasks_21_30;
+package main.java.impl.Tasks_31_40;
 
-import java.util.Scanner;
 import java.util.Arrays;
+import java.util.Scanner;
 
-public class Task_30 {
+public class Task_40 {
 	
 	public static void main(String[] args) {
-		
-		int[] nums = getArrayOfNumbers();
-		
-		printReverseSortedArray(nums);
-		
-		
-	}
-	
-	
-	private static int[] getArrayOfNumbers() {
+			
+			double[] nums = getArrayOfNumbers();
+			
+			printReverseSortedArray(nums);
+			
+		}
+
+	private static double[] getArrayOfNumbers() {
 		//Creates an array of user generated input
 		
 		System.out.println("Please enter three numbers.");
 		Scanner scanner = new Scanner(System.in);
 		
-		int a = 0, b = 0, c = 0;
+		double a = 0, b = 0, c = 0, d = 0;
 		
-		int[] array = {a, b, c};
+		double[] array = {a, b, c, d};
 		
 		for(int i = 0; i < array.length; i++) {
 			System.out.print(String.format("Number %d) ", i+1));
-			array[i] = scanner.nextInt();
+			array[i] = scanner.nextDouble();
 		}
 		
 		scanner.close();
@@ -36,7 +34,7 @@ public class Task_30 {
 	}
 	
 	
-	private static void printReverseSortedArray(int[] array) {
+	private static void printReverseSortedArray(double[] array) {
 		//Prints the array in descending order
 		
 		Arrays.sort(array);
@@ -46,6 +44,6 @@ public class Task_30 {
 		}
 		
 	}
-	
 
+	
 }

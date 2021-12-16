@@ -3,19 +3,18 @@ package main.java.impl.Tasks_31_40;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Task_35 {
+public class Task_38 {
 	
 public static void main(String[] args) {
 		
-		double[] array = getArrayOfNumbers();
+		double[] nums = getArrayOfNumbers();
+		
+		sortArray(nums);
+		
+		checkGeometricProgression(nums);
+		
+	}
 	
-		sortArray(array);
-		
-		sumOfThree(array);
-		
-		
-  }
-
 	private static double[] getArrayOfNumbers() {
 		//Creates an array of user generated input
 		
@@ -35,27 +34,31 @@ public static void main(String[] args) {
 		
 		return array;
 	}
-
-
+	
+	
 	private static void sortArray(double[] array) {
 		//returns sorted array
 		
 		Arrays.sort(array);
 	}
 	
-	
-	private static void sumOfThree(double[] array) {
-		// Assumes initially that the sum of the first three numbers is not equal to the last number. 
-		boolean condition = false;
+	private static void checkGeometricProgression(double[] array) {
+		//Checks whether the sequence of numbers is a geometric progression
+		
+		//finds the ratio of the first two terms in the array
 				
-		if(array[0] + array[1] + array[2] == array[3]) {
-			condition = true;
-			System.out.println(condition);
+		double mult = array[1] / array[0];
+						
+		//Assumes initially that the sequence is a geometric progression
+		boolean isGeomprogress = true;
+		
+		for(int i = 1; i < array.length - 1; i++) {
+			if(array[i+1] / array[i] != mult) isGeomprogress = false;
+			break;
 		}
-		else {
-			System.out.println(condition);
-		}
+		
+		System.out.println(isGeomprogress);
+		
 	}
 
-	
 }
